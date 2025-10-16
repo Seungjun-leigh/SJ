@@ -6,7 +6,7 @@ notBroke=bool(True)
 money=int(5000)
 bet=int(0)
 while notBroke==True:
-    sell+=1
+    sell-=1
     if type(money)==float:
         money=round(money)
     if money<=0:
@@ -16,6 +16,8 @@ while notBroke==True:
         print("Ur rich")
         break
     print("Enter your bet. money:",money)
+    if(rd.random()<0.2):
+        print("Tip: Type \"all\" to bet all your money at once.")
     bet=input()
     if bet=="all":
         bet=money
@@ -33,8 +35,8 @@ while notBroke==True:
         bet*=2
         money+=bet
         print("You won")
-    if money<2000 and sell==5:
-        sell=0
+    if money<2000 and sell<=0:
+        sell+=3
         print("Hi! You look broke. Do you want to sell your kidney for money? 1. Yes 2. No")
         choice1=int(input())
         if choice1==1:
